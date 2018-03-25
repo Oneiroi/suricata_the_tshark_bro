@@ -2,7 +2,7 @@
 # create a temp folder on your drive anywhere
 # copy this file inside it run
 # sudo docker build . && YOU DAM profit!!!
-# sudo docker run --rm -ti $name bash
+# sudo docker run --rm -ti $name
 
 #A small script that can help you with parsing malicious pcaps
 #!/bin/bash
