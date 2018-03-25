@@ -4,6 +4,18 @@
 # sudo docker build . && YOU DAM profit!!!
 # sudo docker run --rm -ti $name bash
 
+#A small script that can help you with parsing malicious pcaps
+#!/bin/bash
+# clear
+# rm /var/log/suricata/fast.log
+# suricata -c /etc/suricata/suricata.yaml -r *.pcap
+# clear
+# cat /var/log/suricata/fast.log
+# bro -C -r *.pcap /usr/share/bro/site/file-extraction/scripts/plugins/extract-all-files.bro
+# cd extract_files/
+# for i in *.*; do md5sum $i >> hashes.txt; done
+# cat hashes.txt
+
 FROM ubuntu:latest
 MAINTAINER Ziran "@grotezinfosec"
 
