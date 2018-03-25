@@ -2,6 +2,8 @@
 # create a temp folder on your drive anywhere
 # copy this file inside it run
 # sudo docker build . && YOU DAM profit!!!
+# sudo docker run --rm -ti $name bash
+
 FROM ubuntu:latest
 MAINTAINER Ziran "@grotezinfosec"
 
@@ -27,3 +29,5 @@ RUN rm /etc/suricata/suricata.yaml
 RUN wget -O /etc/suricata/suricata.yaml https://pastebin.com/raw/g0t5fuKh
 RUN cd usr/share/bro/site && git clone git://github.com/hosom/file-extraction file-extraction
 RUN echo "@load file-extraction" >> local.bro
+
+ENTRYPOINT oinkmaster -C /etc/oinkmaster.conf -o /etc/suricata/rules
