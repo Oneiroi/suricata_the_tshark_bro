@@ -42,4 +42,4 @@ RUN wget -O /etc/suricata/suricata.yaml https://pastebin.com/raw/g0t5fuKh
 RUN cd usr/share/bro/site && git clone git://github.com/hosom/file-extraction file-extraction
 RUN echo "@load file-extraction" >> local.bro
 
-ENTRYPOINT clear && echo "Welcome" && oinkmaster -C /etc/oinkmaster.conf -o /etc/suricata/rules && /bin/bash
+ENTRYPOINT clear && oinkmaster -C /etc/oinkmaster.conf -o /etc/suricata/rules && clear && echo "Welcome" /bin/bash
