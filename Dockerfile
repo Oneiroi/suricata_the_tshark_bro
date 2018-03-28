@@ -7,8 +7,8 @@
 #A small script that can help you with parsing malicious pcaps
 #!/bin/bash
 # clear
-# rm /var/log/suricata/fast.log
-# suricata -c /etc/suricata/suricata.yaml -r *.pcap
+# suricata -c /etc/suricata/rules/suricata-1.3-open.yaml -r *.pcap
+# cat /var/log/suricata/fast.log
 # clear
 # cat /var/log/suricata/fast.log
 # bro -C -r *.pcap /usr/share/bro/site/file-extraction/scripts/plugins/extract-all-files.bro
