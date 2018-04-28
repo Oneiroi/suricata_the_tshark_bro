@@ -7,8 +7,8 @@
 #A small script that can help you with parsing malicious pcaps
 #!/bin/bash
 # clear
-# suricata -c /etc/suricata/rules/suricata-1.3-open.yaml -r *.pcap
-# cat /var/log/suricata/fast.log
+# rm /var/log/suricata/fast.log
+# suricata -c /etc/suricata/suricata.yaml -r *.pcap
 # clear
 # cat /var/log/suricata/fast.log
 # bro -C -r *.pcap /usr/share/bro/site/file-extraction/scripts/plugins/extract-all-files.bro
@@ -27,7 +27,7 @@ RUN apt-get update
 RUN apt-get install -y python python-pip
 RUN apt-get install -y bro
 RUN pip install bro-pkg
-RUN apt-get install -y wget git binwalk exiftool curl whois lynx
+RUN apt-get install -y wget git
 RUN apt-get install -y libpcre3-dbg libpcre3-dev autoconf automake libtool libpcap-dev libnet1-dev libyaml-dev libjansson4 libcap-ng-dev libmagic-dev libjansson-dev zlib1g-dev
 RUN apt-get install -y libnetfilter-queue-dev libnetfilter-queue1 libnfnetlink-dev
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tshark
@@ -41,5 +41,6 @@ RUN rm /etc/suricata/suricata.yaml
 RUN wget -O /etc/suricata/suricata.yaml https://pastebin.com/raw/g0t5fuKh
 RUN cd usr/share/bro/site && git clone git://github.com/hosom/file-extraction file-extraction
 RUN echo "@load file-extraction" >> local.bro
+RUN git clone https://github.com/omriher/CapTipper.git
 
-ENTRYPOINT clear && oinkmaster -C /etc/oinkmaster.conf -o /etc/suricata/rules && clear && echo "Welcome" && /bin/bash
+ENTRYPOINT oinkmaster -C /etc/oinkmaster.conf -o /etc/suricata/rules && clear && echo "welcome" && /bin/bash
