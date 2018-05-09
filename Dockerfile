@@ -1,8 +1,8 @@
 # Docker file for presentation and network/malware forensics
 # create a temp folder on your drive anywhere
 # copy this file inside it run
-# sudo docker build . && YOU DAM profit!!!
-# sudo docker run --rm -ti $name
+# docker build . && YOU DAM profit!!!
+# docker run --rm -ti $name
 
 #A small script that can help you with parsing malicious pcaps
 #!/bin/bash
